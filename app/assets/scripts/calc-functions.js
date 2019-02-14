@@ -1,31 +1,9 @@
-// get display icons
-const getDisplay = document.querySelector("#display");
-const getZero = document.querySelector("#zero");
-const getOne = document.querySelector("#one");
-const getTwo = document.querySelector("#two");
-const getThree = document.querySelector("#three");
-const getFour = document.querySelector("#four");
-const getFive = document.querySelector("#five");
-const getSix = document.querySelector("#six");
-const getSeven = document.querySelector("#seven");
-const getEight = document.querySelector("#eight");
-const getNine = document.querySelector("#nine");
-const getAdd = document.querySelector("#add");
-const getSubtract = document.querySelector("#subtract");
-const getMultiply = document.querySelector("#multiply");
-const getDivide = document.querySelector("#divide");
-const getDecimal = document.querySelector("#decimal");
-const getResult = document.querySelector("#result");
-const getClear = document.querySelector("#clear");
-
-/* add
-1. click number
-2. store number -  arr? str?
-3. click add symbol
-4. click another number
-5. display addition */
-
-getOne.value = 1;
+// get num btns
+const getNumBtn = document.querySelectorAll(".num-btn");
+console.log(getNumBtn);
+// get operator btns
+const getOperators = document.querySelectorAll(".operators");
+console.log(getOperators);
 
 const operators = {
     "+": (a, b) => a + b,
@@ -34,12 +12,42 @@ const operators = {
     "/": (a, b) => a / b
 }
 
-const add = "+";
-const subtract = "-";
-const multiply = "*";
-const divide = "/";
+let numStr = "";
 
-getResult.addEventListener("click", () => {
-    let result = operators[add](Number(getOne.value), Number(getOne.value));
-    console.log(result);
+const numArr = [];
+
+// one
+getNumBtn[1].addEventListener("click", () => {
+    numStr += "1";
+    console.log(`plus 1 for each click: ${numStr}`);
+});
+
+// addition
+getOperators[0].addEventListener("click", () => {
+    numArr.push(numStr);
+    numArr.push("+");
+    numStr = "";
+    console.log(`numStr: ${numStr}`);
+    console.log(numArr);
+});
+
+// subtraction
+getOperators[1].addEventListener("click", () => {
+    strArr.push("-");
+    console.log(strArr);
+});
+
+// equals
+getOperators[5].addEventListener("click", () => {
+    numArr.push(numStr);
+    numStr = "";
+    console.log(numArr);
+    // loop through array, if + add previous indice and after indice
+    for (let i = 0; i < numArr.length; i++) {
+        if (operators.hasOwnProperty("+")) {
+            console.log(operators["+"](parseInt(numArr[0]), parseInt(numArr[2])));
+        } else {
+            console.log("Not an addition problem.");
+        }
+    }
 });
