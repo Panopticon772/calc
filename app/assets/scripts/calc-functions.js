@@ -1,53 +1,48 @@
-// get num btns
-const getNumBtn = document.querySelectorAll(".num-btn");
-console.log(getNumBtn);
-// get operator btns
-const getOperators = document.querySelectorAll(".operators");
-console.log(getOperators);
+const add = (a, b) => a + b;
 
-const operators = {
-    "+": (a, b) => a + b,
-    "-": (a, b) => a - b,
-    "*": (a, b) => a * b,
-    "/": (a, b) => a / b
-}
+const subtract = (a, b) => a - b;
 
-let numStr = "";
+const multiply = (a, b) => a * b;
 
-const numArr = [];
+const divide = (a, b) => a / b;
 
-// one
-getNumBtn[1].addEventListener("click", () => {
-    numStr += "1";
-    console.log(`plus 1 for each click: ${numStr}`);
-});
-
-// addition
-getOperators[0].addEventListener("click", () => {
-    numArr.push(numStr);
-    numArr.push("+");
-    numStr = "";
-    console.log(`numStr: ${numStr}`);
-    console.log(numArr);
-});
-
-// subtraction
-getOperators[1].addEventListener("click", () => {
-    strArr.push("-");
-    console.log(strArr);
-});
-
-// equals
-getOperators[5].addEventListener("click", () => {
-    numArr.push(numStr);
-    numStr = "";
-    console.log(numArr);
-    // loop through array, if + add previous indice and after indice
-    for (let i = 0; i < numArr.length; i++) {
-        if (operators.hasOwnProperty("+")) {
-            console.log(operators["+"](parseInt(numArr[0]), parseInt(numArr[2])));
-        } else {
-            console.log("Not an addition problem.");
+const findBtn = (id) => {
+    const getNumBtn = document.getElementsByTagName("button");
+    for (let i = 0; i < getNumBtn.length; i++) {
+        if (getNumBtn[i].id === id) {
+            return getNumBtn[i];
         }
     }
+}
+
+const numStr = (num) => str += num;
+
+const strToArray = (str) => arr.push(str);
+
+const emptyString = (str) => {
+    str = "";
+    return str;
+}
+
+const arr = [];
+
+let str = "";
+
+findBtn("one").addEventListener("click", () => {
+    numStr(1); 
+    console.log(str);
 });
+
+findBtn("add").addEventListener("click", () => {
+
+});
+
+// functional programming
+/* let arr = [1, 2, 3, 4, 5];
+
+let f = (x) => x % 2 === 0;
+
+let m = (x) => x * 2;
+
+console.log(arr); // original arr untouched
+console.log(arr.filter(f).map(m)); // modified arr */
