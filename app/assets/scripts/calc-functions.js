@@ -6,6 +6,7 @@ const multiply = (a, b) => a * b;
 
 const divide = (a, b) => a / b;
 
+// push correct sign to array
 const sign = (sign) => {
     switch (sign) {
         case "+":
@@ -23,6 +24,7 @@ const sign = (sign) => {
     }
 }
 
+// find correct button
 const findBtn = (id) => {
     const getNumBtn = document.getElementsByTagName("button");
     for (let i = 0; i < getNumBtn.length; i++) {
@@ -32,17 +34,22 @@ const findBtn = (id) => {
     }
 }
 
+// add number to empty string
 const numStr = (num) => str += num;
 
+// push string into array
 const strToArray = () => arr.push(str);
 
+// clear string
 const resetString = () => {
     str = "";
     return str;
 }
 
+// clear arr
 const resetArr = (arr) => arr.length = 0;
 
+// if str contains number, push it to array
 const chkStrLen = () => {
     if (str.length > 0) {
         strToArray();
@@ -50,40 +57,32 @@ const chkStrLen = () => {
     }
 }
 
+// clears array and pushes total into it
+const reset_push = (total) => {
+    resetArr(arr);
+    arr.push(total);
+}
+
 const calculate = (ele) => {
     if (ele === "+") {
-        let total = add(parseInt(arr[0], 10), parseInt(arr[2], 10));
-        console.log(total);
-        resetArr(arr);
-        console.log(arr);
-        arr.push(total);
-        console.log(arr);
+        let total = add(parseInt(arr[0], 10),parseInt(arr[2], 10));
+        reset_push(total);
     } else if (ele === "-") {
         let total = subtract(parseInt(arr[0], 10), parseInt(arr[2], 10));
-        console.log(total);
-        resetArr(arr);
-        console.log(arr);
-        arr.push(total);
-        console.log(arr);
+        reset_push(total);
     } else if (ele === "*") {
-        let total = multiply(parseInt(arr[0], 10), parseInt(arr[2], 10));
-        console.log(total);
-        resetArr(arr);
-        console.log(arr);
-        arr.push(total);
-        console.log(arr);
+        let total = multiply(parseInt(arr[0], 10),parseInt(arr[2], 10));
+        reset_push(total);
     } else if (ele === "/") {
         let total = divide(parseInt(arr[0], 10), parseInt(arr[2], 10));
-        console.log(total);
-        resetArr(arr);
-        console.log(arr);
-        arr.push(total);
-        console.log(arr);
+        reset_push(total);
     }
 }
 
+// holds numbers
 const arr = [];
 
+// holds numbers
 let str = "";
 
 findBtn("one").addEventListener("click", () => {
@@ -95,6 +94,48 @@ findBtn("one").addEventListener("click", () => {
 findBtn("two").addEventListener("click", () => {
     // add 2 to string
     numStr(2); 
+    console.log(str);
+});
+
+findBtn("three").addEventListener("click", () => {
+    // add 2 to string
+    numStr(3); 
+    console.log(str);
+});
+
+findBtn("four").addEventListener("click", () => {
+    // add 2 to string
+    numStr(4); 
+    console.log(str);
+});
+
+findBtn("five").addEventListener("click", () => {
+    // add 2 to string
+    numStr(5); 
+    console.log(str);
+});
+
+findBtn("six").addEventListener("click", () => {
+    // add 2 to string
+    numStr(6); 
+    console.log(str);
+});
+
+findBtn("seven").addEventListener("click", () => {
+    // add 2 to string
+    numStr(7); 
+    console.log(str);
+});
+
+findBtn("eight").addEventListener("click", () => {
+    // add 2 to string
+    numStr(8); 
+    console.log(str);
+});
+
+findBtn("nine").addEventListener("click", () => {
+    // add 2 to string
+    numStr(9); 
     console.log(str);
 });
 
@@ -142,14 +183,15 @@ findBtn("total").addEventListener("click", () => {
     chkStrLen();
     resetString();
     arr.forEach(calculate);
+    console.log(arr);
 });
 
-// functional programming
-/* let arr = [1, 2, 3, 4, 5];
+/* // functional programming
+let arr = [1, 2, 3, 4, 5];
 
 let f = (x) => x % 2 === 0;
 
 let m = (x) => x * 2;
 
 console.log(arr); // original arr untouched [1, 2, 3, 4, 5]
-console.log(arr.filter(f).map(m)); // modified arr [4, 8]*/
+console.log(arr.filter(f).map(m)); // modified arr [4, 8] */
