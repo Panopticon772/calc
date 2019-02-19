@@ -26,7 +26,7 @@ const sign = (sign) => {
 
 // find correct button
 const findBtn = (id) => {
-    const getNumBtn = document.getElementsByTagName("button");
+    const getNumBtn = document.querySelectorAll("button");
     for (let i = 0; i < getNumBtn.length; i++) {
         if (getNumBtn[i].id === id) {
             return getNumBtn[i];
@@ -52,14 +52,14 @@ const resetArr = (arr) => arr.length = 0;
 // if str contains number, push it to array
 const chkStrLen = () => {
     if (str.length > 0) {
-        strToArray();
+        arr.push(str);
         console.log(arr);
     }
 }
 
 // clears array and pushes total into it
 const reset_push = (total) => {
-    resetArr(arr);
+    arr.length = 0;
     arr.push(total);
 }
 
@@ -89,121 +89,97 @@ const calculate = (ele) => {
     }
 }
 
+// event listener
+const numEvent = () => {
+    const getNumBtn = document.querySelectorAll("button");
+    getNumBtn.forEach((ele) => {
+        ele.addEventListener("click", (e) => {
+            switch (e.target.id) {
+                case "one":
+                    numStr(1);
+                    console.log(str);
+                    break;
+                case "two":
+                    numStr(2);
+                    console.log(str);
+                    break;
+                case "three":
+                    numStr(3);
+                    console.log(str);
+                    break;
+                case "four":
+                    numStr(4);
+                    console.log(str);
+                    break;
+                case "five":
+                    numStr(5);
+                    console.log(str);
+                    break;
+                case "six":
+                    numStr(6);
+                    console.log(str);
+                    break;
+                case "seven":
+                    numStr(7);
+                    console.log(str);
+                    break;
+                case "eight":
+                    numStr(8);
+                    console.log(str);
+                    break;
+                case "nine":
+                    numStr(9);
+                    console.log(str);
+                    break;
+                case "add":
+                    // only push string if it contains a number
+                    chkStrLen();
+                    // apply sign
+                    sign("+");
+                    console.log(arr);
+                    resetString();
+                    console.log(str);
+                    break;
+                case "subtract":
+                    // only push string if it contains a number
+                    chkStrLen();
+                    // apply sign
+                    sign("-");
+                    console.log(arr);
+                    resetString();
+                    console.log(str);
+                    break;
+                case "multiply":
+                    // only push string if it contains a number
+                    chkStrLen();
+                    // apply sign
+                    sign("*");
+                    console.log(arr);
+                    resetString();
+                    console.log(str);
+                    break;
+                case "divide":
+                    // only push string if it contains a number
+                    chkStrLen();
+                    // apply sign
+                    sign("/");
+                    console.log(arr);
+                    resetString();
+                    console.log(str);
+                    break;
+            }
+            displayString();
+        });
+    });
+}
+
 // holds numbers
 const arr = [];
 
 // holds numbers
 let str = "";
 
-findBtn("zero").addEventListener("click", () => {
-    // add 1 to string
-    numStr(0); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("one").addEventListener("click", () => {
-    // add 1 to string
-    numStr(1); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("two").addEventListener("click", () => {
-    // add 2 to string
-    numStr(2); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("three").addEventListener("click", () => {
-    // add 2 to string
-    numStr(3); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("four").addEventListener("click", () => {
-    // add 2 to string
-    numStr(4); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("five").addEventListener("click", () => {
-    // add 2 to string
-    numStr(5); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("six").addEventListener("click", () => {
-    // add 2 to string
-    numStr(6); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("seven").addEventListener("click", () => {
-    // add 2 to string
-    numStr(7); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("eight").addEventListener("click", () => {
-    // add 2 to string
-    numStr(8); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("nine").addEventListener("click", () => {
-    // add 2 to string
-    numStr(9); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("add").addEventListener("click", () => {
-    // only push string if it contains a number
-    chkStrLen();
-    // apply sign
-    sign("+");
-    console.log(arr);
-    resetString();
-    console.log(str);
-});
-
-findBtn("subtract").addEventListener("click", () => {
-    // only push string if it contains a number
-    chkStrLen();
-    // apply sign
-    sign("-");
-    console.log(arr);
-    resetString();
-    console.log(str);
-});
-
-findBtn("multiply").addEventListener("click", () => {
-    // only push string if it contains a number
-    chkStrLen();
-    // apply sign
-    sign("*");
-    console.log(arr);
-    resetString();
-    console.log(str);
-});
-
-findBtn("divide").addEventListener("click", () => {
-    // only push string if it contains a number
-    chkStrLen();
-    // apply sign
-    sign("/");
-    console.log(arr);
-    resetString();
-    console.log(str);
-});
+numEvent();
 
 findBtn("clear").addEventListener("click", () => {
     const display = document.querySelector("#display");

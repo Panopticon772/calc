@@ -16,11 +16,21 @@ body {
 
 .container {
     background-color: rgb(235, 235, 235);
+    margin: 3.0rem;
 }
 
 #display {
     background: rgb(97, 51, 204);
+    text-align: right;
+    height: 2.0rem;
+    border: 2px solid rgb(235, 235, 235);
 }
+
+#calc {
+    border: 2px solid rgb(70, 20, 206);
+    padding: 1.0rem;
+}
+
 .num-btn, .operators, .clear {
     border: 2px solid #000;
     color: #000;
