@@ -44,16 +44,16 @@ const displayArr = () => {
 
 const calculate = (ele) => {
     if (ele === "+") {
-        let total = add(parseInt(arr[0], 10),parseInt(arr[2], 10));
+        let total = add(parseFloat(arr[0], 10), parseFloat(arr[2], 10));
         reset_push(total);
     } else if (ele === "-") {
-        let total = subtract(parseInt(arr[0], 10), parseInt(arr[2], 10));
+        let total = subtract(parseFloat(arr[0], 10), parseFloat(arr[2], 10));
         reset_push(total);
     } else if (ele === "*") {
-        let total = multiply(parseInt(arr[0], 10),parseInt(arr[2], 10));
+        let total = multiply(parseFloat(arr[0], 10), parseFloat(arr[2], 10));
         reset_push(total);
     } else if (ele === "/") {
-        let total = divide(parseInt(arr[0], 10), parseInt(arr[2], 10));
+        let total = divide(parseFloat(arr[0], 10), parseFloat(arr[2], 10));
         reset_push(total);
     }
 }
@@ -103,8 +103,10 @@ numEvents("six", 6);
 numEvents("seven", 7);
 numEvents("eight", 8);
 numEvents("nine", 9);
+numEvents("decimal", ".");
+numEvents("negative", "-");
 
-// op events
+// operator events
 operatorEvents("add", "+");
 operatorEvents("subtract", "-");
 operatorEvents("multiply", "*");
@@ -128,116 +130,6 @@ document.querySelector("#total").addEventListener("click", () => {
     console.log(arr);
     displayArr();
 });
-
-/* findBtn("zero").addEventListener("click", () => {
-    // add 0 to string
-    numStr(0);
-    console.log(str);
-    displayString();
-});
-
-findBtn("one").addEventListener("click", () => {
-    // add 1 to string
-    numStr(1);
-    console.log(str);
-    displayString();
-});
-
-findBtn("two").addEventListener("click", () => {
-    // add 2 to string
-    numStr(2); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("three").addEventListener("click", () => {
-    // add 2 to string
-    numStr(3); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("four").addEventListener("click", () => {
-    // add 2 to string
-    numStr(4); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("five").addEventListener("click", () => {
-    // add 2 to string
-    numStr(5); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("six").addEventListener("click", () => {
-    // add 2 to string
-    numStr(6); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("seven").addEventListener("click", () => {
-    // add 2 to string
-    numStr(7); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("eight").addEventListener("click", () => {
-    // add 2 to string
-    numStr(8); 
-    console.log(str);
-    displayString();
-});
-
-findBtn("nine").addEventListener("click", () => {
-    // add 2 to string
-    numStr(9); 
-    console.log(str);
-    displayString();
-}); */
-
-// findBtn("add").addEventListener("click", () => {
-//     // only push string if it contains a number
-//     chkStrLen();
-//     // apply sign
-//     sign("+");
-//     console.log(arr);
-//     resetString();
-//     console.log(str);
-// });
-
-// findBtn("subtract").addEventListener("click", () => {
-//     // only push string if it contains a number
-//     chkStrLen();
-//     // apply sign
-//     sign("-");
-//     console.log(arr);
-//     resetString();
-//     console.log(str);
-// });
-
-// findBtn("multiply").addEventListener("click", () => {
-//     // only push string if it contains a number
-//     chkStrLen();
-//     // apply sign
-//     sign("*");
-//     console.log(arr);
-//     resetString();
-//     console.log(str);
-// });
-
-// findBtn("divide").addEventListener("click", () => {
-//     // only push string if it contains a number
-//     chkStrLen();
-//     // apply sign
-//     sign("/");
-//     console.log(arr);
-//     resetString();
-//     console.log(str);
-// });
 
 /* // functional programming
 let arr = [1, 2, 3, 4, 5];
