@@ -42,6 +42,19 @@ const displayArr = () => {
     display.innerHTML = arr;
 }
 
+// const disableNum = () => {
+//     const btns = document.getElementsByClassName("num-btn");
+//     console.log(btns);
+//     for (let i = 0; i < btns.length; i++) {
+//         console.log(btns[i].classList);
+//         if (arr.length > 3) {
+//             btns[i].disabled = true;
+//         }
+//     }
+// }
+
+// disableNum();
+
 const calculate = (ele) => {
     if (ele === "+") {
         let total = add(parseFloat(arr[0], 10), parseFloat(arr[2], 10));
@@ -70,10 +83,11 @@ const numEvents = (id, num) => {
                 displayString();
             }
         });
-    })
+    });
 }
 
 const operatorEvents = (id, sign) => {
+    const display = document.querySelector("#display");
     const btns = document.querySelectorAll("button");
     btns.forEach((ele) => {
         // add event listener to all btns
@@ -87,9 +101,18 @@ const operatorEvents = (id, sign) => {
                 console.log(arr);
                 resetString();
                 console.log(str);
+            } else if (arr.length > 3) {
+                // chkStrLen();
+                // resetString();
+                let last = arr.pop();
+                console.log(last);
+                arr.forEach(calculate);
+                arr.push(last);
+                console.log(arr);
+                display.innerHTML = arr[0];
             }
         });
-    })
+    });
 }
 
 // num events
@@ -130,6 +153,8 @@ document.querySelector("#total").addEventListener("click", () => {
     console.log(arr);
     displayArr();
 });
+
+// last num hit, add to str, then push string immediately to arr, calculate
 
 /* // functional programming
 let arr = [1, 2, 3, 4, 5];
