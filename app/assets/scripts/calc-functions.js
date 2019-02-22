@@ -42,19 +42,6 @@ const displayArr = () => {
     display.innerHTML = arr;
 }
 
-// const disableNum = () => {
-//     const btns = document.getElementsByClassName("num-btn");
-//     console.log(btns);
-//     for (let i = 0; i < btns.length; i++) {
-//         console.log(btns[i].classList);
-//         if (arr.length > 3) {
-//             btns[i].disabled = true;
-//         }
-//     }
-// }
-
-// disableNum();
-
 const calculate = (ele) => {
     if (ele === "+") {
         let total = add(parseFloat(arr[0], 10), parseFloat(arr[2], 10));
@@ -102,8 +89,6 @@ const operatorEvents = (id, sign) => {
                 resetString();
                 console.log(str);
             } else if (arr.length > 3) {
-                // chkStrLen();
-                // resetString();
                 let last = arr.pop();
                 console.log(last);
                 arr.forEach(calculate);
@@ -153,8 +138,6 @@ document.querySelector("#total").addEventListener("click", () => {
     console.log(arr);
     displayArr();
 });
-
-// last num hit, add to str, then push string immediately to arr, calculate
 
 /* // functional programming
 let arr = [1, 2, 3, 4, 5];
