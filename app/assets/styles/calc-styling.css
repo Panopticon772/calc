@@ -23,7 +23,7 @@ body {
 #title {
     text-align: center;
     background-color: rgb(26, 67, 200);
-    padding: 1.0rem;
+    padding: 0.5rem 0 1.0rem 0;
     border-bottom: 2px solid #000;
     font-family: "Oswald", sans-serif;
     letter-spacing: 0.1rem;
@@ -58,7 +58,7 @@ body {
     border-top: 3px solid rgb(26, 67, 200);
 }
 
-.num-btn, .operators, .clear {
+.num-btn, .operators, .clear, .other-btn {
     background-color: #000;
     color: #fff;
     text-align: center;
@@ -68,9 +68,10 @@ body {
     padding: 1.0rem;
     margin: 0.15rem;
     font-size: 0.8rem;
+    font-family: "Laila", sans-serif;
 }
 
-.num-btn:hover, .operators:hover, .clear:hover {
+.num-btn:hover, .operators:hover, .clear:hover, .other-btn:hover {
     background-color: rgb(65, 65, 65);
     transition-duration: 0.3s;
 }
@@ -80,17 +81,17 @@ footer {
     background-color: rgb(26, 67, 200);
     flex-shrink: 0;
     padding: 1.0rem;
-    font-family: "Oswald", sans-serif;
-    letter-spacing: 0.1rem;
 }
 
 .social {
     text-align: center;
     font-size: 1.2rem;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0.1rem;
 }
 
 p {
-    padding-bottom: 1.0rem;
+    padding-bottom: 0.4rem;
 }
 
 a {

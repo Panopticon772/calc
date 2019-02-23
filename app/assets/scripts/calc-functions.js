@@ -26,6 +26,9 @@ const chkStrLen = () => {
     }
 }
 
+// if arr contains duplicates, remove before calculating
+const findDuplicates = (value, idx, self) => self.indexOf(value) === idx;
+
 // clears array and pushes total into it
 const reset_push = (total) => {
     arr.length = 0;
@@ -137,14 +140,9 @@ document.querySelector("#total").addEventListener("click", () => {
     arr.forEach(calculate);
     console.log(arr);
     displayArr();
+    arr.length = 0;
+    console.log(arr);
 });
 
-/* // functional programming
-let arr = [1, 2, 3, 4, 5];
 
-let f = (x) => x % 2 === 0;
-
-let m = (x) => x * 2;
-
-console.log(arr); // original arr untouched [1, 2, 3, 4, 5]
-console.log(arr.filter(f).map(m)); // modified arr [4, 8] */
+// if total is clicked, then clicking a number following that should reset array
