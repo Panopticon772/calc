@@ -4,6 +4,8 @@ let arr = [];
 // holds numbers
 let str = "";
 
+const r2 = ["+", "-", "*", "/"];
+
 const add = (a, b) => a + b;
 
 const subtract = (a, b) => a - b;
@@ -22,7 +24,6 @@ const resetString = () => {
 const chkStrLen = () => {
     if (str.length > 0) {
         arr.push(str);
-        console.log(arr);
     }
 }
 
@@ -69,7 +70,6 @@ const numEvents = (id, num) => {
             // if target btn id matches called id, add that num to str and display on screen
             if (e.target.id === id) {
                 str += num;
-                console.log(str);
                 displayString();
             }
         });
@@ -82,21 +82,20 @@ const operatorEvents = (id, sign) => {
     btns.forEach((ele) => {
         // add event listener to all btns
         ele.addEventListener("click", (e) => {
+            // if string is empty, disable operator btns
+            if (str.length === 0) {
+                return;
             // if target btn id matches called id, add that num to str and display on screen
-            if (e.target.id === id) {
+            } else if (e.target.id === id) {
                 // only push string if it contains a number
                 chkStrLen();
                 // push operator
                 arr.push(sign);
-                console.log(arr);
                 resetString();
-                console.log(str);
             } else if (arr.length > 3) {
                 let last = arr.pop();
-                console.log(last);
                 arr.forEach(calculate);
                 arr.push(last);
-                console.log(arr);
                 display.innerHTML = arr[0];
             }
         });
@@ -127,9 +126,7 @@ operatorEvents("divide", "/");
 document.querySelector("#clear").addEventListener("click", () => {
     const display = document.querySelector("#display");
     resetString();
-    console.log(str);
     arr.length = 0;
-    console.log(arr);
     display.innerHTML = "0";
 });
 
@@ -138,11 +135,6 @@ document.querySelector("#total").addEventListener("click", () => {
     chkStrLen();
     resetString();
     arr.forEach(calculate);
-    console.log(arr);
     displayArr();
     arr.length = 0;
-    console.log(arr);
 });
-
-
-// if total is clicked, then clicking a number following that should reset array

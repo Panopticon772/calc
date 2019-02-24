@@ -14,7 +14,7 @@ body {
     background: rgb(10, 10, 10);
     background-color: rgb(50, 55, 77);
     background-image: url("../images/calc-1.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
     background-size: cover;
     color: rgb(235, 235, 235);
